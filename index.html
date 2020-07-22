@@ -160,16 +160,17 @@
       // console.log(burgerButton);
 
       
-      ipad.addListener(validation);
+      ipad.addListener(validation)
+      validation(ipad);
       
       function validation(event) {
         if (event.matches) {
-          burgerButton.addEventListener('click', hideShow);          
+          burgerButton.addEventListener('click', hideShow)          
         } else {
-          burgerButton.removeEventListener('click', hideShow);          
+          burgerButton.removeEventListener('click', hideShow)          
         }
-        console.log(event.matches);
       }
+      
 
       function hideShow() {
         if (menu.classList.contains('is-active')) {
