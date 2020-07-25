@@ -15,7 +15,7 @@
         <figure class="logo">
           <img src="images/logo.png" height="50" alt="Logo de http://leonidasesteban.com" />
         </figure>
-        <nav class="menu is-active">
+        <nav class="menu">
           <ol>
             <li>
               <a class="link" href="#portafolio">Portafolio</a>
@@ -152,35 +152,30 @@
       </div>
     </footer>
     <script>
-      console.log();
-      const ipad = window.matchMedia('screen and (max-width: 767px)');
-      const menu = document.querySelector('.menu');
+      const ipad=window.matchMedia("screen and (max-width:767px)");
+      ipad.addListener(validation);
+      const links = document.querySelectorAll('.link')
+      const menu=document.querySelector(".menu");
+      const burgerButton= document.querySelector("#burger-menu");
       // console.log(menu);
-      const burgerButton = document.querySelector('#burger-menu');
       // console.log(burgerButton);
 
-      
-      ipad.addListener(validation)
-      validation(ipad);
-      
       function validation(event) {
         if (event.matches) {
-          burgerButton.addEventListener('click', hideShow)          
+          burgerButton.addEventListener("click",toggleMenu);
         } else {
-          burgerButton.removeEventListener('click', hideShow)          
+          burgerButton.removeEventListener("click",toggleMenu);
         }
       }
       
-
-      function hideShow() {
-        if (menu.classList.contains('is-active')) {
-          
-          menu.classList.remove('is-active');
+      function toggleMenu() {
+        if (menu.classList.contains("is-active")) {
+          menu.classList.remove("is-active");
         } else {
-          
-          menu.classList.add('is-active');
+          menu.classList.add("is-active");
         }
       }
+      validation(ipad);
     </script>
   </body>
 </html>
